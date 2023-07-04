@@ -1,13 +1,19 @@
-# Pixel Experience #
+###### MORBIOS ######
 
+### Initialize local repository ###
+```bash
+mkdir Morb
+```
+```bash
+cd Morb
+```
 ### Sync ###
 
 ```bash
+repo init -u https://github.com/Morbi-OS/manifest.git -b 13
+```
 
-# Initialize local repository
-repo init -u https://github.com/PixelExperience/manifest -b thirteen-plus
-
-# Sync
+```bash
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ```
 
@@ -15,18 +21,11 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
 ```bash
 
-# Set up environment
-$ . build/envsetup.sh
-
-# Choose a target
-$ lunch aosp_$device-userdebug
-
-# Build the code
-$ mka bacon -jX
+source build/envsetup.sh
 ```
-
-### Submitting Patches ###
-
-Patches are always welcome! Please submit your patches to our Gerrit.
-
-[Gerrit push guide](https://wiki.pixelexperience.org/help/submit-patch/)
+```bash
+lunch aosp_$device-userdebug
+```
+```bash
+mka bacon -j64
+```

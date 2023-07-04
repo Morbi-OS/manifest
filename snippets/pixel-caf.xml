@@ -52,9 +52,9 @@
   <project path="hardware/qcom-caf/msm8996/audio" name="hardware_qcom-caf_msm8996_audio" remote="pixel" />
   <project path="hardware/qcom-caf/msm8996/display" name="hardware_qcom-caf_msm8996_display" remote="pixel" />
   <project path="hardware/qcom-caf/msm8996/media" name="hardware_qcom-caf_msm8996_media" remote="pixel" />
-  <project path="hardware/qcom-caf/msm8998/audio" name="hardware_qcom-caf_msm8998_audio" remote="pixel" />
-  <project path="hardware/qcom-caf/msm8998/display" name="hardware_qcom-caf_msm8998_display" remote="pixel" />
-  <project path="hardware/qcom-caf/msm8998/media" name="hardware_qcom-caf_msm8998_media" remote="pixel" />
+  <project path="hardware/qcom-caf/msm8998/audio" name="hardware_qcom-caf_msm8998_audio" remote="sting" revision="13x" />
+  <project path="hardware/qcom-caf/msm8998/display" name="hardware_qcom-caf_msm8998_display" remote="sting" revision="x" />
+  <project path="hardware/qcom-caf/msm8998/media" name="hardware_qcom-caf_msm8998_media" remote="sting" revision="13x" />
   <project path="hardware/qcom-caf/sdm660/audio" name="hardware_qcom-caf_sdm660_audio" remote="pixel" />
   <project path="hardware/qcom-caf/sdm660/display" name="hardware_qcom-caf_sdm660_display" remote="pixel" />
   <project path="hardware/qcom-caf/sdm660/media" name="hardware_qcom-caf_sdm660_media" remote="pixel" />
@@ -109,7 +109,7 @@
   <project path="vendor/qcom/opensource/interfaces" name="vendor_qcom_opensource_interfaces" remote="pixel" />
   <project path="vendor/qcom/opensource/libfmjni" name="vendor_qcom_opensource_libfmjni" remote="pixel" />
   <project path="vendor/qcom/opensource/thermal-engine" name="vendor_qcom_opensource_thermal-engine" remote="pixel" />
-  <project path="vendor/qcom/opensource/power" name="vendor_qcom_opensource_power" remote="pixel" />
+  <project path="vendor/qcom/opensource/power" name="vendor_qcom_opensource_power" remote="morb" />
   <project path="vendor/qcom/opensource/usb" name="vendor_qcom_opensource_usb" remote="pixel" />
   <project path="vendor/qcom/opensource/vibrator" name="vendor_qcom_opensource_vibrator" remote="pixel" />
   <project path="vendor/qcom/opensource/wfd-commonsys" name="vendor_qcom_opensource_wfd-commonsys" remote="pixel" />
