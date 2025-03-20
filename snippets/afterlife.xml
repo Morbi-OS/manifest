@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- afterlife -->
+  <remote  name="afl"
+           fetch="https://github.com/Morbi-OS"
+           revision="15x" />
+
+  <remote  name="afl-gitlab"
+           fetch="https://gitlab.com/RdW-afk" />
+
+  <remote  name="afl-giteax"
+           fetch="https://gitea.com/romeo21" 
+           revision="15x" />
+
+  <remote  name="afl-gitea"
+           fetch="https://gitea.com/AfterlifeOS" 
+           revision="15x" />
+
+
+  <!-- Rootdir -->
+  <project path="art" name="art" groups="pdk" remote="afl" />
+  <project path="bionic" name="bionic" groups="pdk" remote="afl" />
+  <project path="kernel/configs" name="kernel_configs" groups="vts,pdk" remote="afl" />
+  <project path="manifest" name="manifest" remote="afl" />
+
+  <!-- Bootable -->
+  <project path="bootable/deprecated-ota" name="bootable_deprecated-ota" groups="pdk-cw" remote="afl"/>
+  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="afl" />
+
+  <!-- Build -->
+  <project path="build/make" name="build" groups="pdk,sysui-studio" remote="afl" >
+    <linkfile dest="build/CleanSpec.mk" src="CleanSpec.mk" />
+    <linkfile dest="build/buildspec.mk.default" src="buildspec.mk.default" />
+    <linkfile dest="build/core" src="core" />
+    <linkfile dest="build/envsetup.sh" src="envsetup.sh" />
+    <linkfile dest="build/target" src="target" />
+    <linkfile dest="build/tools" src="tools" />
+  </project>
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed" remote="afl" >
+    <linkfile dest="Android.bp" src="root.bp" />
+    <linkfile dest="bootstrap.bash" src="bootstrap.bash" />
+  </project>
+  <project path="build/release" name="build_release" remote="afl" />
+
+  <!-- Device -->
+  <project path="device/afterlife/sepolicy" name="device_afterlife_sepolicy" remote="afl" />
+  <project path="device/qcom/sepolicy_vndr/legacy-um" name="device_qcom_sepolicy_vndr" groups="qcom,lahaina" revision="15x-legacy-um" remote="afl" />
+  <project path="device/qcom/sepolicy_vndr/sm6225" name="device_qcom_sepolicy_vndr" revision="15x-caf-sm6225" remote="afl" />
+
+  <!-- External -->
+  <project path="external/avb" name="external_avb" groups="pdk" remote="afl" />
+  <project path="external/dtc" name="external_dtc" groups="pdk" remote="afl" />
+  <project path="external/e2fsprogs" name="external_e2fsprogs" remote="afl" />
+  <project path="external/gptfdisk" name="external_gptfdisk" remote="afl" />
+  <project path="external/mksh" name="external_mksh" remote="afl" />
+  <project path="external/tinycompress" name="external_tinycompress" groups="pdk" remote="afl" />
+  <project path="external/wpa_supplicant_8" name="external_wpa_supplicant_8" groups="pdk" remote="afl"/>
+  <project path="external/zstd" name="external_zstd" remote="afl" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="afl" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="afl-giteax" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="afl" />
+  <project path="frameworks/libs/systemui" name="frameworks_libs_systemui" groups="pdk" remote="afl" />
+  <project path="frameworks/opt/telephony" name="frameworks_opt_telephony" groups="pdk" remote="afl" />
+
+  <!-- Hardware -->
+  <project path="hardware/interfaces" name="hardware_interfaces" groups="pdk,sysui-studio" remote="afl" />
+  <project path="hardware/google/pixel" name="hardware_google_pixel" groups="generic_fs,pixel" remote="afl" />
+  <project path="hardware/google/pixel-sepolicy" name="hardware_google_pixel-sepolicy" groups="generic_fs,pixel" remote="afl" />
+  <project path="hardware/libhardware" name="hardware_libhardware" groups="pdk" remote="afl" />
+  <project path="hardware/qcom-caf/common" name="hardware_qcom-caf_common" groups="qcom" remote="afl" >
+
+    <!-- Add guard for AOSP hardware/qcom dir -->
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+    <!-- Add guards for CLO repositories -->
+    <linkfile src="os_pickup_sepolicy_vndr.mk" dest="device/qcom/sepolicy_vndr/SEPolicy.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/msm8953/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8953/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8996/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8996/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8998/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8998/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm660/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sdm660/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm845/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sdm845/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8150/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8150/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8250/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8250/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8350/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8350/Android.mk" />
+    <linkfile src="os_pickup.bp" dest="kernel/google/gs101/private/google-modules/Android.bp" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm6225/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm6225/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm6225/Android.mk" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm8450/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8450/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8450/Android.mk" />
+    <linkfile src="os_pickup_audio-ar.mk" dest="hardware/qcom-caf/sm8550/audio/Android.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8550/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/sm8550/Android.mk" />
+    <!-- add guards for Pixel kernel modules -->
+    <linkfile src="os_pickup.bp" dest="kernel/google/gs201/private/google-modules/Android.bp" />
+  </project>
+  <project path="hardware/qcom-caf/sm6225/audio/agm" name="vendor_qcom_opensource_agm" revision="15x-caf-sm6225" remote="afl" />
+  <project path="hardware/qcom-caf/sm6225/audio/pal" name="vendor_qcom_opensource_arpal-lx" revision="15x-caf-sm6225" remote="afl" />
+  <project path="hardware/qcom-caf/sm6225/audio/primary-hal" name="hardware_qcom_audio-ar" revision="15x-caf-sm6225" remote="afl" />
+  <project path="hardware/qcom-caf/sm6225/data-ipa-cfg-mgr" name="vendor_qcom_opensource_data-ipa-cfg-mgr" revision="15x-caf-sm6225" remote="afl" />
+  <project path="hardware/qcom-caf/sm6225/dataipa" name="vendor_qcom_opensource_dataipa" revision="15x-caf-sm6225" remote="afl" />
+  <project path="hardware/qcom-caf/sm6225/display" name="hardware_qcom_display" revision="15x-caf-sm6225" remote="afl" />
+  <project path="hardware/qcom-caf/sm6225/media" name="hardware_qcom_media" revision="15x-caf-sm6225" remote="afl" />
+  <project path="hardware/ril" name="hardware_ril" groups="pdk" remote="afl" />
+  <project path="hardware/afterlife/interfaces" name="hardware_afterlife_interfaces" remote="afl" />
+  <project path="hardware/mediatek" name="hardware_mediatek" remote="afl" />
+  <project path="hardware/xiaomi" name="hardware_xiaomi" remote="afl" />
+
+  <!-- Packages -->
+  <project path="packages/apps/ColumbusService" name="packages_apps_ColumbusService" groups="pdk-fs" remote="afl" />
+  <project path="packages/apps/GameSpace" name="packages_apps_GameSpace" groups="pdk-fs" remote="afl" />
+  <project path="packages/apps/Launcher3" name="packages_apps_Launcher3" groups="pdk-fs" remote="afl" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs" remote="afl" />
+  <project path="packages/apps/ParanoidSense" name="packages_apps_ParanoidSense" remote="afl" />
+  <project path="packages/modules/Bluetooth" name="packages_modules_Bluetooth" groups="pdk" remote="afl" />
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" remote="afl-gitea" />
+  <project path="packages/modules/Wifi" name="packages_modules_Wifi" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="afl" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" remote="afl" />
+
+  <project path="packages/overlays/Themes" name="packages_overlays_Themes" remote="afl" />
+
+  <!-- System -->
+  <project path="system/bpf" name="system_bpf" groups="pdk" remote="afl" />
+  <project path="system/core" name="system_core" groups="pdk" remote="afl-gitea" />
+  <project path="system/extras" name="system_extras" groups="pdk" remote="afl" />
+  <project path="system/media" name="system_media" groups="pdk" remote="afl" />
+  <project path="system/security" name="system_security" groups="pdk" remote="afl" />
+  <project path="system/sepolicy" name="system_sepolicy" groups="pdk" remote="afl" />
+  <project path="system/update_engine" name="system_update_engine" groups="pdk" remote="afl" />
+  <project path="system/vold" name="system_vold" groups="pdk" remote="afl" />
+
+  <!-- Vendor -->
+  <project path="vendor/afterlife" name="vendor_afterlife" remote="afl" />
+  <project path="vendor/afterlife/signed" name="vendor_signed" remote="afl" />
+  <project path="vendor/support" name="vendor_support" remote="afl" />
+  <project path="vendor/gms" name="vendor_gms" remote="afl-gitlab" revision="fifteen" clone-depth="1" />
+</manifest>
