@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote  name="aosp"
-           fetch=".."
+  <<remote  name="aosp"
+           fetch="https://android.googlesource.com/"
            review="https://android-review.googlesource.com/" />
   <default revision="refs/tags/android-15.0.0_r17"
            remote="aosp"
@@ -1409,6 +1409,11 @@
   <project path="trusty/vendor/google/aosp" name="trusty/vendor/google/aosp" groups="trusty" >
     <copyfile src="lk_inc.mk" dest="lk_inc.mk" />
   </project>
+
+  <!-- AfterlifeOS -->
+  <include name="snippets/remove.xml"/>
+  <include name="snippets/lineage.xml"/>
+  <include name="snippets/afterlife.xml"/>
   <!-- END open-source projects -->
 
 </manifest>
